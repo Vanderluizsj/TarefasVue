@@ -8,10 +8,6 @@
 <body>
     <div id="tarefasApp"> 
 
-        <hr>
-        <h1>{{teste}}</h1>  <!--impressão do teste "ola, mundo"-->
-        <hr>
-
         <h1>Controle de tarefas</h1>
             <h2>Adicionar tarefa</h2>
             <form>
@@ -29,7 +25,17 @@
             <tbody>
                 <tr>
                     <td><input type="checkbox"></td>
-                    <td>Aqui vai o título da tarefa</td>
+                    <td>{{tarefas[0].titulo}}</td>  <!--chamando array de tarefas na posição 0 atributo titulo-->     
+                    <td><button>Delete</button></td>
+                </tr>
+                <tr>
+                    <td><input type="checkbox"></td>
+                    <td>{{tarefas[1].titulo}}</td>
+                    <td><button>Delete</button></td>
+                </tr>
+                <tr>
+                    <td><input type="checkbox"></td>
+                    <td>{{tarefas[2].titulo}}</td>
                     <td><button>Delete</button></td>
                 </tr>
             </tbody>
@@ -39,8 +45,12 @@
     <script>
         var tarefasApp=new Vue({    //variavel que recebera as propriedades
             el:"#tarefasApp", //el é a propriedade que definira o nome do elemento a ser manipulado
-            data:{          //propriedade data permite criar outros atributos
-                teste:"Olá, mundo!"
+            data:{  //propriedade data permite criar outros atributos
+            tarefas:[ // criado array de tarefas
+                {titulo:"Desenvolver API para o sistema",pronta:false} 
+                {titulo:"Criar controle de acesso",pronta:false}
+                {titulo:"Enviar novas mudanças para o servidor",pronta:false}
+            ]
             }
         });
     </script>
