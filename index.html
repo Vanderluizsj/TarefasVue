@@ -6,7 +6,10 @@
     <title>Cadastro de tarefas</title>
 </head>
 <body>
-    <div>
+    <div id="tarefasApp">
+        <hr>
+        <h1>{{teste}}</h1>
+        <hr>
         <h1>Controle de tarefas</h1>
             <h2>Adicionar tarefa</h2>
             <form>
@@ -30,5 +33,14 @@
             </tbody>
         </table>
     </div>
+    <script src="https://unpkg.com/vue/dist/vue.js"></script>
+    <script>
+        var tarefasApp=new Vue({
+            el:"#tarefasApp",
+            data:{
+                teste:"Olá, mundo"
+            }
+        });
+    </script>
 </body>
 </html>
