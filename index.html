@@ -23,21 +23,12 @@
                 <th>Remover</th>
             </thead>
             <tbody>
-                <tr>
+                <tr v-for="tarefa in tarefas">  <!--diretiva v-for percorre o array tarefas-->
                     <td><input type="checkbox"></td>
-                    <td>{{tarefas[0].titulo}}</td>  <!--chamando array de tarefas na posição 0 atributo titulo-->     
+                    <td>{{tarefa.titulo}}</td>  <!--chamando array de tarefas na posição 0 atributo titulo-->     
                     <td><button>Delete</button></td>
                 </tr>
-                <tr>
-                    <td><input type="checkbox"></td>
-                    <td>{{tarefas[1].titulo}}</td>
-                    <td><button>Delete</button></td>
-                </tr>
-                <tr>
-                    <td><input type="checkbox"></td>
-                    <td>{{tarefas[2].titulo}}</td>
-                    <td><button>Delete</button></td>
-                </tr>
+               
             </tbody>
         </table>
     </div>
@@ -46,11 +37,11 @@
         var tarefasApp=new Vue({    //variavel que recebera as propriedades
             el:"#tarefasApp", //el é a propriedade que definira o nome do elemento a ser manipulado
             data:{  //propriedade data permite criar outros atributos
-            tarefas:[ // criado array de tarefas
-                {titulo:"Desenvolver API para o sistema",pronta:false} 
-                {titulo:"Criar controle de acesso",pronta:false}
-                {titulo:"Enviar novas mudanças para o servidor",pronta:false}
-            ]
+                 tarefas:[ // criado array de tarefas para imprrimir na pagina(dataBinding unidirecional)
+                    {titulo: "Desenvolver API para o sistema", pronta:false}, 
+                    {titulo: "Criar controle de acesso", pronta:false},
+                    {titulo: "Enviar novas mudanças para o servidor", pronta:false},
+                ]
             }
         });
     </script>
