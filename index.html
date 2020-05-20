@@ -6,10 +6,12 @@
     <title>Cadastro de tarefas</title>
 </head>
 <body>
-    <div id="tarefasApp">
+    <div id="tarefasApp"> 
+
         <hr>
-        <h1>{{teste}}</h1>
+        <h1>{{teste}}</h1>  <!--impressão do teste "ola, mundo"-->
         <hr>
+
         <h1>Controle de tarefas</h1>
             <h2>Adicionar tarefa</h2>
             <form>
@@ -33,12 +35,12 @@
             </tbody>
         </table>
     </div>
-    <script src="https://unpkg.com/vue/dist/vue.js"></script>
+    <script src="https://unpkg.com/vue/dist/vue.js"></script> <!--importando o scrip do vue de modo online-->
     <script>
-        var tarefasApp=new Vue({
-            el:"#tarefasApp",
-            data:{
-                teste:"Olá, mundo"
+        var tarefasApp=new Vue({    //variavel que recebera as propriedades
+            el:"#tarefasApp", //el é a propriedade que definira o nome do elemento a ser manipulado
+            data:{          //propriedade data permite criar outros atributos
+                teste:"Olá, mundo!"
             }
         });
     </script>
