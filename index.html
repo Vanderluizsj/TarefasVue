@@ -10,9 +10,11 @@
 
         <h1>Controle de tarefas</h1>
             <h2>Adicionar tarefa</h2>
-            <form>
-                <input type="text" placeholder="Titulo da tarefa">
-                <input type="submit" value="Adicionar">
+            <form v-on:submit="addTarefa">
+                 <!--a diretiva v-on testa se houve chamada do tipo submit e se houver ela vai chamar metodo addTarefa. Cada vez que clicamos no botão Adicionar, criado abaixo, uma chamada do tipo submit é feita-->
+                <input type="text" v-model="novaTarefa.titulo" placeholder="Titulo da tarefa">
+                <!--v-model é uma diretiva que permite o DataBinding Bidirecional-->
+                <input type="submit" value="Adicionar"> 
             </form>
         <hr>
         <h2>Tarefas a fazer</h2>
@@ -41,7 +43,17 @@
                     {titulo: "Desenvolver API para o sistema", pronta:false}, 
                     {titulo: "Criar controle de acesso", pronta:false},
                     {titulo: "Enviar novas mudanças para o servidor", pronta:false},
-                ]
+                ],
+                novaTarefa:{  //novo atributo para add nova tarefa
+                    titulo:'',
+                    pronta:false
+                }
+            },
+            methods:{       //propriedade mothods serve para declarar os metodos que serão usados
+                addTarefa:function(e){  //metodo que adiciona as tarefas criadas no novaTarefa no array tarefas
+                    e.preventDefault();
+                    this.tarefas.push(this.novaTarefa)
+                }
             }
         });
     </script>
