@@ -28,7 +28,7 @@
                 <tr v-for="tarefa in tarefas">  <!--diretiva v-for percorre o array tarefas-->
                     <td><input type="checkbox"></td>
                     <td>{{tarefa.titulo}}</td>  <!--chamando array de tarefas na posição 0 atributo titulo-->     
-                    <td><button>Delete</button></td>
+                    <td><button v-on:click="removerTarefa(tarefa)">Delete</button></td>
                 </tr>
                
             </tbody>
@@ -53,6 +53,9 @@
                 addTarefa:function(e){  //metodo que adiciona as tarefas criadas no novaTarefa no array tarefas
                     e.preventDefault();
                     this.tarefas.push(this.novaTarefa)
+                },
+                removerTarefa:function(tarefa){  //metodo criado para remover tarefas ao clicar em delete
+                    this.tarefas.splice(this.tarefas.indexOf(tarefa),1)
                 }
             }
         });
