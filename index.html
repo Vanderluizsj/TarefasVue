@@ -6,8 +6,8 @@
     <title>Cadastro de tarefas</title>
     <link href="stylesheet.css" rel="stylesheet">
     <style>
-        .tarefaPronta{ /*Passa uma linha acima do titulo quando a tarefa estiver pronta*/
-            text-decoration: line-through;
+        .tarefaPronta{ 
+            text-decoration: line-through;/*Passa uma linha em cima do titulo da tarefa quando estiver pronta*/
         }
     </style>
 </head>
@@ -32,8 +32,12 @@
             </thead>
             <tbody>
                 <tr v-for="tarefa in tarefas">  <!--diretiva v-for percorre o array tarefas-->
-                    <td><input type="checkbox"></td>
-                    <td>{{tarefa.titulo}}</td>  <!--chamando array de tarefas na posição 0 atributo titulo-->     
+                    <td><input type="checkbox" v-model="tarefa.pronta"></td><!--altera o atributo pronta da tarefa de false para true-->
+
+                    <!--esse span abaixo é ativado sempre que o atributo pronta for true e chama a classe css tarefaPronta-->
+                    <td> <span v-bind:class="{tarefaPronta:tarefa.pronta}">{{tarefa.titulo}}</span> </td> 
+                    
+                    <!--chamando array de tarefas na posição 0 atributo titulo-->     
                     <td><button v-on:click="removerTarefa(tarefa)">Delete</button></td>
                 </tr>
                
